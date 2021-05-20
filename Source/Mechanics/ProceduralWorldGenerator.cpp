@@ -55,6 +55,8 @@ void AProceduralWorldGenerator::SpawnItem(UClass* ItemToSpawn, FVector SpawnLoca
 	oo.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_Visibility));
 	oo.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_WorldDynamic));
 	oo.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_WorldStatic));
+	oo.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_PhysicsBody));
+	oo.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_GameTraceChannel2));
 	oo.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_Camera));
 	bool ok = UKismetSystemLibrary::BoxOverlapActors(GetWorld(), SpawnLocation, FVector(XO[ItemToSpawn]*2, XO[ItemToSpawn]*2, ZO[ItemToSpawn]*2), oo, nullptr, Ignored, Out);
 	//UE_LOG(LogTemp, Warning, TEXT("%d"),Out.Num());
