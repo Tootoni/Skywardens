@@ -14,4 +14,6 @@ AMechanicsGameMode::AMechanicsGameMode()
 
 	//// use our custom HUD class
 	//HUDClass = AMechanicsHUD::StaticClass();
+	/*GetWorldAsset*/
+
 }
