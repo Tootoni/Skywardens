@@ -12,7 +12,7 @@ AProceduralWorldGenerator::AProceduralWorldGenerator()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	Floor = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("FloorComponent"));
-	SetRootComponent(Floor);
+	//SetRootComponent(Floor);
 	gridSize = 100.f;
 	worldSize = 10000.f;
 	rowCount = worldSize / gridSize;
@@ -23,11 +23,13 @@ AProceduralWorldGenerator::AProceduralWorldGenerator()
 void AProceduralWorldGenerator::BeginPlay()
 {
 	Super::BeginPlay();
-	ZO[BuildingClass] = 4500;
-	XO[BuildingClass] = 500;
+	ZO[BuildingClass] = 800;
+	XO[BuildingClass] = 400;
 	ZO[ChairClass] = 50;
 	XO[ChairClass] = 50;
-	for(int i=0;i<rowCount;i++) for(int j=0;j<rowCount;j++) SpawnItem(BuildingClass, GetGridWorldLocation(i,j, XO[BuildingClass], ZO[BuildingClass]));
+	for(int i=0;i<rowCount;i++) 
+		for(int j=0;j<rowCount;j++) 
+			SpawnItem(BuildingClass, GetGridWorldLocation(i,j, XO[BuildingClass], ZO[BuildingClass]));
 }
 
 // Called every frame
